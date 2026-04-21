@@ -1,0 +1,19 @@
+[workspace]
+resolver = "3"
+members = ["garuda-codec", "garuda-codec-core", "garuda-file-transfer"]
+
+[workspace.lints.rust]
+warnings = "deny"
+unsafe_code = "deny"
+nonstandard_style = "deny"
+unused = "deny"
+
+[workspace.lints.clippy]
+pedantic = { level = "deny", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+panic = "deny"
+missing_errors_doc = "allow"
+manual_let_else = "allow"
+must_use_candidate = "allow"
+needless_pass_by_value = "allow"

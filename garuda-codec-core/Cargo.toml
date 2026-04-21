@@ -1,0 +1,13 @@
+[package]
+name = "garuda_codec_core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+raptorq = "2.0.0"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+libc = "0.2.175"
+
+[lints]
+workspace = true

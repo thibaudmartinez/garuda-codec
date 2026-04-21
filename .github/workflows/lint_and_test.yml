@@ -1,0 +1,32 @@
+name: Lint and test
+
+on:
+  push:
+
+jobs:
+  lint_and_test:
+    name: Lint and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install dependencies
+        uses: jdx/mise-action@v4
+
+      - name: Set up Rust
+        run: |
+          rustup component add clippy
+          rustup component add rustfmt
+
+      - name: Check linting
+        run: hk run check --all
+
+      - name: Run unit tests
+        run: cargo test --lib --release
+
+      - name: Setup veth interfaces
+        run: chmod +x ./scripts/setup_veth.sh && sudo ./scripts/setup_veth.sh --device1 origdev --device2 destdev
+
+      - name: Run integration tests
+        run: sudo $(cargo test --test integration_test --release --no-run --message-format=json | jq -r 'select(.target.name == "integration_test") | .executable')

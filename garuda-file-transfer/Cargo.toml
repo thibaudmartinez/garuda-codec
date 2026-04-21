@@ -1,0 +1,11 @@
+[package]
+name = "garuda_file_transfer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+garuda_codec_core = { path = "../garuda-codec-core" }
+uuid = { version = "1.23.0", features = ["v4"] }
+
+[lints]
+workspace = true

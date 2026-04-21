@@ -1,0 +1,16 @@
+[package]
+name = "garuda_codec"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "garuda-codec"
+path = "src/main.rs"
+
+[dependencies]
+garuda_codec_core = { path = "../garuda-codec-core" }
+garuda_file_transfer = { path = "../garuda-file-transfer" }
+clap = { version = "4.6.0", features = ["derive"] }
+
+[lints]
+workspace = true
