@@ -63,7 +63,7 @@ Now, let's start the decoder.
 target/release/garuda-codec decoder --input tcp://127.0.0.1:8081 --output - -w 3 > result.bin
 ```
 
-⚠️`-w 3` specifies the number of worker threads to use, it should be identical between the encoder and the decoder.
+⚠️ `-w 3` specifies the number of worker threads to use, it should be identical between the encoder and the decoder.
 
 Using another terminal instance, let's send an encoded source block using the encoder.
 
